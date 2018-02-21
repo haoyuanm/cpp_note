@@ -1,8 +1,9 @@
 
-//stringstream
-//包含 <sstream> 头文件
+// stringstream
+#include <sstream>
 
 void func(void) { 
+	// std::istringstream
 	istringstream istr("1 56.7");	//初始化
     cout <<istr.str() <<endl;		//str()成员函数返回字符串
     int a;
@@ -20,28 +21,26 @@ void func(void) {
 	sstr >>str;
 	cout <<str <<endl;
 	//--------string转int----------- 
-	sstr.clear();
+	sstr.clear();		// 如果你想通过使用同一stringstream对象实现多种类型的转换，请注意在每一次转换之后都必须调用clear()成员函数.
 	string str("100");
 	int a = 0;
 	sstr <<str;
 	sstr >>a;
 	cout <<a <<endl;
 	//--------string转char[]-------- 
-	sstr.clear();	//如果你想通过使用同一stringstream对象实现多种类型的转换，请注意在每一次转换之后都必须调用clear()成员函数。 
+	sstr.clear(); 
 	string name = "colinguan";
 	char cname[200];
 	sstr <<name;
 	sstr >>cname;
 	cout <<cname;
-}
-
-//string to long long
-long long stringToLonglong(string s) {
-    stringstream ss;
-    ss<<s;
-    long long  res;
-    ss>>res;
-    return res;
+	//--------string转longlong------ 
+	sstr.clear();
+	string str("100");
+	long long ll;
+	sstr <<str;
+	sstr >>ll;
+	cout <<ll;
 }
 
 
@@ -66,10 +65,3 @@ std::string to_string( unsigned long long value );
 std::string to_string( float value );
 std::string to_string( double value );
 std::string to_string( long double value );
-
-
-
-
-
-
-

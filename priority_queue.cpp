@@ -1,40 +1,47 @@
-/*优先队列的基本使用    2010/7/24    dooder*/  
-#include<stdio.h>  
-#include<functional>  
-#include<queue>  
-#include<vector>  
-using namespace std;  
 
-// 定义结构，使用运算符重载,自定义优先级1  
+/*
+    Priority Queue    
+    
+    time:   2018/2/20 
+    author: haoyuanm
+*/
+
+#include<stdio.h>
+#include<functional>
+#include<queue>
+#include<vector>
+using namespace std;
+
+// 方法一，定义结构，重载函数调用运算符
 struct cmp1{  
-    bool operator ()(int &a,int &b){  
-        return a>b;//最小值优先  
+    bool operator() (int &a,int &b) {  
+        return a > b;    // 最小值优先  
     }  
 };  
 struct cmp2{  
-    bool operator ()(int &a,int &b){  
-        return a<b;//最大值优先  
+    bool operator() (int &a,int &b) {  
+        return a < b;    // 最大值优先  
     }  
 };  
 
-// 定义结构，使用运算符重载,自定义优先级2  
+// 方法二，定义结构，重载小于运算符
 struct number1{  
     int x;  
-    bool operator < (const number1 &a) const {  
-        return x>a.x;//最小值优先  
+    bool operator< (const number1 &a) const {  
+        return x > a.x;  // 最小值优先  
     }  
 };  
 struct number2{  
     int x;  
-    bool operator < (const number2 &a) const {  
-        return x<a.x;//最大值优先  
+    bool operator< (const number2 &a) const {  
+        return x < a.x;  // 最大值优先  
     }  
 };
 
-//定义结构，使用友元函数，自定义优先级3
+//方法三，定义结构，使用友元函数重载小于运算符
 struct node {
     friend bool operator < (node n1, node n2) {
-        return n1.priority < n2.priority;//"<"为从大到小排列，">"为从小打到排列
+        return n1.priority < n2.priority;   // "<"为从大到小排列，">"为从小打到排列
     }
     int priority;
     int value;
@@ -44,15 +51,15 @@ int a[]={14,10,56,7,83,22,36,91,3,47,72,0};
 number1 num1[]={14,10,56,7,83,22,36,91,3,47,72,0};  
 number2 num2[]={14,10,56,7,83,22,36,91,3,47,72,0};  
   
-int main()  
-{   priority_queue<int>que;//采用默认优先级构造队列  
+int main() {   
+    priority_queue<int>que;     // 采用默认优先级构造队列  
   
-    priority_queue<int,vector<int>,cmp1>que1;//最小值优先  
-    priority_queue<int,vector<int>,cmp2>que2;//最大值优先  
+    priority_queue<int,vector<int>,cmp1>que1;           // 最小值优先  
+    priority_queue<int,vector<int>,cmp2>que2;           // 最大值优先  
   
-    priority_queue<int,vector<int>,greater<int> >que3;//注意“>>”会被认为错误，  
-                                                      //这是右移运算符，所以这里用空格号隔开  
-    priority_queue<int,vector<int>,less<int> >que4;   //最大值优先  
+    priority_queue<int,vector<int>,greater<int> >que3;  // 注意“>>”会被认为错误，  
+                                                        // 这是右移运算符，所以这里用空格号隔开  
+    priority_queue<int,vector<int>,less<int> >que4;     // 最大值优先  
   
     priority_queue<number1>que5;  
     priority_queue<number2>que6;  
