@@ -152,3 +152,16 @@ long double floor (long double x);
       float abs (float x);
 long double abs (long double x);
      double abs (T x);           // additional overloads for integral types
+
+// vector initialization
+vector<int> v{1,2,3,4,5};
+vector<int> v = vector<int>{1,2,3,4,5};
+
+// next
+newIter = next(iter, num); // 可以用任何迭代器，包括set，map
+
+// distance
+distance(iter1, iter2);    // 可以用任何迭代器，包括set，map
+int diff = iter1 - iter2;  // 只能计算连续内存存放的数据结构(vector)，而list不行
+
+
