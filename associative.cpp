@@ -59,6 +59,8 @@ m.upper_bound(k);	// 返回一个迭代器,指向键大于k的第一个元素
 m.equal_range(k);	// 返回上面两个函数返回的迭代器的pair对象
 
 
+// map initialization with costom compare function
+map<int, int, cmp> m;	// cmp should be a class overload () operator
 
 
 
