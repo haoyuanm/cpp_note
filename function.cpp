@@ -161,7 +161,12 @@ vector<int> v = vector<int>{1,2,3,4,5};
 newIter = next(iter, num); // 可以用任何迭代器，包括set，map; iter值不变
 
 // distance
-distance(iter1, iter2);    // 可以用任何迭代器，包括set，map
+int dist = distance(iter1, iter2);    // 可以用任何迭代器，包括set，map，但是set，map只能计算正的，而vector可以计算负的，list循环一圈？
 int diff = iter1 - iter2;  // 只能计算连续内存存放的数据结构(vector)，而list不行
 
+// nth_element
+nth_element(nums.begin(), nth_iter, nums.end());  // nth_iter会指向排好序后的第n个元素
+
+// inplace_merge
+inplace_merge(nums.begin(), nums_mid_iter, nums.end());
 
