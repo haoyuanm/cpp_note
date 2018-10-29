@@ -158,7 +158,7 @@ vector<int> v{1,2,3,4,5};
 vector<int> v = vector<int>{1,2,3,4,5};
 
 // next
-newIter = next(iter, num); // 可以用任何迭代器，包括set，map
+newIter = next(iter, num); // 可以用任何迭代器，包括set，map; iter值不变
 
 // distance
 distance(iter1, iter2);    // 可以用任何迭代器，包括set，map
