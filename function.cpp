@@ -159,6 +159,8 @@ vector<int> v = vector<int>{1,2,3,4,5};
 
 // next
 newIter = next(iter, num); // 可以用任何迭代器，包括set，map; iter值不变
+// prev
+newIter = prev(iter, num);
 
 // distance
 int dist = distance(iter1, iter2);    // 可以用任何迭代器，包括set，map，但是set，map只能计算正的，而vector可以计算负的，list循环一圈？
